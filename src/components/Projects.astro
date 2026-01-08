@@ -1,85 +1,89 @@
 ---
-import React from '../icons/React.astro'
-import Bootstrap from '../icons/Bootstrap.astro'
-import LinkButton from './LinkButton.astro'
-import GitHub from '@/icons/GitHub.astro'
-import WebSite from '@/icons/WebSite.astro'
+import React from "../icons/React.astro";
+import Bootstrap from "../icons/Bootstrap.astro";
+import LinkButton from "./LinkButton.astro";
+import GitHub from "@/icons/GitHub.astro";
+import WebSite from "@/icons/WebSite.astro";
 
 const TAGS = {
-    REACT: {
-        name: 'React',
-        class: 'bg-[#61DBFB] text-white',
-        icon: React,
-    },
+  REACT: {
+    name: "React",
+    class: "bg-[#61DBFB] text-white",
+    icon: React,
+  },
 
-    BOOTSTRAP: {
-        name: 'Bootstrap',
-        class: 'bg-[#9F27F5] text-white',
-        icon: Bootstrap, 
-    },
-}
+  BOOTSTRAP: {
+    name: "Bootstrap",
+    class: "bg-[#9F27F5] text-white",
+    icon: Bootstrap,
+  },
+};
 
 const PROJECTS = [
-    {
-        title: 'Project 1',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        link: 'https://entrega-final-react-25235-pl.vercel.app/',
-        github:'https://github.com/PauDev1/entrega-final-react-25235-PL',
-        image: '/projects/svgl.webp',
-        tags: [TAGS.REACT, TAGS.BOOTSTRAP]
-    },
-    
-    {
-        title: 'Project 2',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        // link: '',
-        github:'https://github.com/PauDev1/entrega-final-react-25235-PL',
-        image: '/projects/java.webp',
-        tags: [TAGS.REACT, TAGS.BOOTSTRAP]
+  {
+    title: "Project 1",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    link: "https://entrega-final-react-25235-pl.vercel.app/",
+    github: "https://github.com/PauDev1/entrega-final-react-25235-PL",
+    image: "/projects/svgl.webp",
+    tags: [TAGS.REACT, TAGS.BOOTSTRAP],
+  },
 
-    }
-]
+  {
+    title: "Project 2",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    // link: '',
+    github: "https://github.com/PauDev1/entrega-final-react-25235-PL",
+    image: "/projects/java.webp",
+    tags: [TAGS.REACT, TAGS.BOOTSTRAP],
+  },
+];
 ---
+
+
+
 <section class="flex flex-col gap-y-16">
-{
-   PROJECTS.map(({image, title, description, tags, link, github}) => (
-    <article>
+  {
+    PROJECTS.map(({ image, title, description, tags, link, github }) => (
+      <article>
         <h3 class="text-2xl font-semibold text-purple-200 mb-2">{title}</h3>
         <p class="text-lg mb-4 text-pretty">{description}</p>
         <ul class="flex gap-x-2 flex-row mb-2">
           {tags.map((tag) => (
-              <li>
-                {/* <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}> */}
-                {/* <tag.icon class="size=4"/>
+            <li>
+              {/* <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}> */}
+              {/* <tag.icon class="size=4"/>
                 {tag.name}
                 </span> */}
-               
-                  <span class='inline-flex h-full animate-background-shine gap-x-2 items-center justify-center rounded-full border border-gray-600 bg-[linear-gradient(110deg,#000,45%,#4D4B4B,55%,#000)] bg-[length:250%_100%] px-3 py-1 text-xs font-medium '>
-                 <tag.icon class="size=4"/>
+
+              <span class="inline-flex h-full animate-background-shine gap-x-2 items-center justify-center rounded-full border border-gray-600 bg-[linear-gradient(110deg,#000,45%,#4D4B4B,55%,#000)] bg-[length:250%_100%] px-3 py-1 text-xs font-medium ">
+                <tag.icon class="size=4" />
                 {tag.name}
-                </span> 
-              </li>
+              </span>
+            </li>
           ))}
         </ul>
-        <img 
-        loading="lazy"
-        class="rounded shadow-2xl shadow-white/10 aspect-video"
-        src={image} 
-        alt={`Captura de pantalla del proyecto ${image}`}
+        <img
+          loading="lazy"
+          class="rounded shadow-2xl shadow-white/10 aspect-video"
+          src={image}
+          alt={`Captura de pantalla del proyecto ${image}`}
         />
         <footer class="flex gap-x-4 items-end justify-end mt-4">
-            <LinkButton href={github}>
-            <GitHub class="size-6"/>
+          <LinkButton href={github} target="_blank" rel="noopener noreferrer">
+            <GitHub class="size-6" />
             Ver código
+          </LinkButton>
+          {link && (
+            <LinkButton href={link} target="_blank" rel="noopener noreferrer">
+              <WebSite />
+              Ver sitio
             </LinkButton>
-            {link &&(
-                <LinkButton href={link}>
-               <WebSite/>
-               Ver sitio
-            </LinkButton>
-            )}
+          )}
         </footer>
-    </article>
-   )) 
-}
+      </article>
+    ))
+  }
 </section>

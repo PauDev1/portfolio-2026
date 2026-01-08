@@ -13,6 +13,8 @@ import Experience from '@/components/Experience.astro';
 import SectionContainer from '@/components/SectionContainer.astro'
 import Projects from '@/components/Projects.astro';
 import AboutMe from '@/components/AboutMe.astro';
+import ContactIcon from '@/icons/Mail.astro'
+import Contact from '@/components/Contact.astro'
 ---
 
 <Layout title="Portfolio de Paola - Desarrollador y Programador web Full Stack"
@@ -36,7 +38,7 @@ import AboutMe from '@/components/AboutMe.astro';
 					<Badge>Disponible para trabajar</Badge>
 				</a>
 			</h1>
-		    <h2 class=" text-xl lg:text-2xl text-wrap max-w-[700px]">
+		    <h2 class=" text-2xl lg:text-2xl text-wrap max-w-[700px]">
 				<span>Desarrolladora Full Stack.</span>
 				<span class="text-purple-200/90">+4 años de experiencia.</span>
 				<span class="text-red-200/90">De Buenos Aires, Argentina.</span>
@@ -80,6 +82,15 @@ import AboutMe from '@/components/AboutMe.astro';
 			</h2>
 			<AboutMe/>
 		<SectionContainer>
+
+		<SectionContainer id="contacto">
+			<h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center mt-40">
+				<ContactIcon class="size-7"/>
+				Contacto
+			</h2>
+			<Contact/>
+		<SectionContainer>
+
 	</main>
 </Layout>
 
