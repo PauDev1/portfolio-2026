@@ -4,6 +4,8 @@ import Bootstrap from "../icons/Bootstrap.astro";
 import LinkButton from "./LinkButton.astro";
 import GitHub from "@/icons/GitHub.astro";
 import WebSite from "@/icons/WebSite.astro";
+import Spring from "@/icons/Spring.astro";
+import MySql from "@/icons/MySql.astro";
 
 const TAGS = {
   REACT: {
@@ -17,25 +19,47 @@ const TAGS = {
     class: "bg-[#9F27F5] text-white",
     icon: Bootstrap,
   },
+
+   SPRING: {
+    name: "Springboot",
+    class: "bg-[#9F27F5] text-white",
+    icon: Spring,
+  },
+
+   MYSQL: {
+    name: "MySQL",
+    class: "bg-[#9F27F5] text-white",
+    icon: MySql,
+  },
 };
 
 const PROJECTS = [
   {
-    title: "Project 1",
+    title: "E-commerce en React",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Aplicación web desarrollada con React.js que implementa un sistema básico de gestión de productos y carrito de compras. Cuenta con un panel de administración protegido por login, desde el cual se realiza un CRUD completo de productos. La interfaz fue maquetada con Bootstrap, priorizando el desarrollo de la lógica y la arquitectura de componentes en React.",
     link: "https://entrega-final-react-25235-pl.vercel.app/",
     github: "https://github.com/PauDev1/entrega-final-react-25235-PL",
-    image: "/projects/svgl.webp",
+    image: "/projects/react.webp",
     tags: [TAGS.REACT, TAGS.BOOTSTRAP],
   },
 
   {
+    title: "E-commerce REST API – Java & Spring Boot",
+    description:
+      "API RESTful desarrollada en Java con Spring Boot para gestionar un sistema de E-commerce, aplicando POO, arquitectura en capas y buenas prácticas REST. Utiliza MySQL con Spring Data JPA para persistencia y permite realizar operaciones CRUD sobre productos, usuarios y pedidos",
+    // link: '',
+    github: "https://github.com/PauDev1/proyecto-integrador",
+    image: "/projects/java.webp",
+    tags: [TAGS.SPRING, TAGS.MYSQL],
+  },
+
+   {
     title: "Project 2",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     // link: '',
-    github: "https://github.com/PauDev1/entrega-final-react-25235-PL",
+    github: "https://github.com/PauDev1/proyecto-integrador",
     image: "/projects/java.webp",
     tags: [TAGS.REACT, TAGS.BOOTSTRAP],
   },
@@ -67,7 +91,7 @@ const PROJECTS = [
         </ul>
         <img
           loading="lazy"
-          class="rounded shadow-2xl shadow-white/10 aspect-video"
+          class="mt-4 rounded shadow-2xl shadow-white/10 aspect-video"
           src={image}
           alt={`Captura de pantalla del proyecto ${image}`}
         />
