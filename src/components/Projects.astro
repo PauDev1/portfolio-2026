@@ -6,30 +6,51 @@ import GitHub from "@/icons/GitHub.astro";
 import WebSite from "@/icons/WebSite.astro";
 import Spring from "@/icons/Spring.astro";
 import MySql from "@/icons/MySql.astro";
+import Node from "@/icons/Node.astro";
+import Express from "@/icons/Express.astro";
+import Mongo from "@/icons/Mongo.astro";
 
 const TAGS = {
   REACT: {
     name: "React",
-    class: "bg-[#61DBFB] text-white",
+    class: "bg-[#003159] text-[#61DBFB] border border-[#61DBFB]/20",
     icon: React,
   },
 
   BOOTSTRAP: {
     name: "Bootstrap",
-    class: "bg-[#9F27F5] text-white",
+    class: "bg-[#311B92] text-white border border-[#D1C4E9]/20",
     icon: Bootstrap,
   },
 
-   SPRING: {
+  SPRING: {
     name: "Springboot",
-    class: "bg-[#9F27F5] text-white",
+    class: "bg-[#1B5E20] text-white border border-[#C8E6C9]/20",
     icon: Spring,
   },
 
-   MYSQL: {
+  MYSQL: {
     name: "MySQL",
-    class: "bg-[#9F27F5] text-white",
+    class: "bg-[#003545] text-white border border-[#00758F]/20",
     icon: MySql,
+  },
+
+  NODE: {
+    name: "Node.js",
+    class: "bg-[#1B3A1B] text-white border border-[#68A063]/20",
+    icon: Node,
+  },
+
+  EXPRESS: {
+    name: "Express.js",
+    class: "bg-[#333333] text-white border border-[#FFFFFF]/20",
+    icon: Express,
+  },
+
+  MONGODB: {
+    name: "MongoDB",
+    class: "bg-[#001E2B] text-white border border-[#00ED64]/20",
+    icon: Mongo,
   },
 };
 
@@ -54,29 +75,27 @@ const PROJECTS = [
     tags: [TAGS.SPRING, TAGS.MYSQL],
   },
 
-   {
+  {
     title: "Trailerflix REST API- Node.js & Express",
     description:
       "API integral para la gestión de contenidos multimedia utilizando Node.js y Express. El proyecto destaca por el diseño de una base de datos relacional en MySQL y la implementación de una arquitectura MVC que facilita el mantenimiento. Resolví desafíos técnicos relacionados con el filtrado complejo de datos y la optimización de consultas, asegurando una respuesta rápida y segura del servidor.",
     // link: '',
     github: "https://github.com/PauDev1/Trailerflix/",
     image: "/projects/trailerflix.webp",
-    tags: [ TAGS.MYSQL],
+    tags: [TAGS.NODE, TAGS.EXPRESS, TAGS.MYSQL],
   },
 
   {
     title: "Muebleria REST API- Node.js & Express",
     description:
-      "API integral para la gestión de contenidos multimedia utilizando Node.js y Express. El proyecto destaca por el diseño de una base de datos relacional en MySQL y la implementación de una arquitectura MVC que facilita el mantenimiento. Resolví desafíos técnicos relacionados con el filtrado complejo de datos y la optimización de consultas, asegurando una respuesta rápida y segura del servidor.",
+      "API creada para gestionar el stock de una mueblería. Usé Node.js con Express para la lógica del servidor y MongoDB como base de datos para guardar los productos. Desarrollé los endpoints necesarios para poder crear, leer, actualizar y borrar (CRUD) ítems del catálogo de forma rápida.",
     // link: '',
     github: "https://github.com/PauDev1/Muebleria",
     image: "/projects/muebleria.webp",
-    tags: [ TAGS.MYSQL],
+    tags: [TAGS.NODE, TAGS.EXPRESS, TAGS.MONGODB],
   },
 ];
 ---
-
-
 
 <section class="flex flex-col gap-y-16">
   {
@@ -84,16 +103,25 @@ const PROJECTS = [
       <article>
         <h3 class="text-2xl font-semibold text-purple-200 mb-2">{title}</h3>
         <p class="text-lg mb-4 text-pretty">{description}</p>
+        {/* <ul class="flex gap-x-2 flex-row mb-2">
+          {tags.map((tag) => (
+            <li>
+             
+
+              <span class="inline-flex h-full animate-background-shine gap-x-2 items-center justify-center rounded-full border border-gray-600  bg-[length:250%_100%] px-3 py-1 text-xs font-medium ">
+                <tag.icon class="size=4" />
+                {tag.name}
+              </span>
+            </li>
+          ))}
+        </ul> */}
         <ul class="flex gap-x-2 flex-row mb-2">
           {tags.map((tag) => (
             <li>
-              {/* <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}> */}
-              {/* <tag.icon class="size=4"/>
-                {tag.name}
-                </span> */}
-
-              <span class="inline-flex h-full animate-background-shine gap-x-2 items-center justify-center rounded-full border border-gray-600 bg-[linear-gradient(110deg,#000,45%,#4D4B4B,55%,#000)] bg-[length:250%_100%] px-3 py-1 text-xs font-medium ">
-                <tag.icon class="size=4" />
+              <span
+                class={`flex gap-x-2 items-center justify-center rounded-full px-3 py-1 text-xs font-medium ${tag.class}`}
+              >
+                <tag.icon class="size-4" />
                 {tag.name}
               </span>
             </li>

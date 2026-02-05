@@ -16,7 +16,7 @@ export const server = {
         service: 'gmail',
         auth: {
           user: import.meta.env.GMAIL_USER,
-          pass: import.meta.env.GMAIL_PASS, // La clave de 16 letras
+          pass: import.meta.env.GMAIL_PASS, 
         },
       });
 
