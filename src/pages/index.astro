@@ -21,7 +21,7 @@ import Contact from '@/components/Contact.astro'
 		description=""
 >
 	<main class="px-4">
-		<SectionContainer class="py-44 pb-32">
+		<SectionContainer class="pt-72 pb-32">
 			<!-- <img 
     			class="rounded-full size-12 mb-4" 
     			src="https://avatars.githubusercontent.com/u/148149730?v=4" 
@@ -52,10 +52,10 @@ import Contact from '@/components/Contact.astro'
 					<GitHubIcon class="size-6"/>
 					GitHub
 				</SocialPill>
-				<SocialPill href="mailto:pao.lizarriba@gmail.com" >
+				<!-- <SocialPill href="mailto:pao.lizarriba@gmail.com" >
 					<MailIcon class="size-6"/>
 					Gmail
-				</SocialPill>
+				</SocialPill> -->
 			</nav>
 		</SectionContainer>
 
@@ -67,29 +67,30 @@ import Contact from '@/components/Contact.astro'
 			<Experience/>
 		<SectionContainer> -->
 
-		<SectionContainer id="proyectos">
-			<h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center mt-40">
-				<CodeIcon class="size-7"/>
-				Proyectos
-			</h2>
-			<Projects/>
-		<SectionContainer>
-
-		<SectionContainer id="sobre-mi">
+		<SectionContainer id="sobre-mi" class="py-32">
 			<h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center mt-40">
 				<ProfileCheckIcon class="size-7"/>
 				Sobre mí
 			</h2>
 			<AboutMe/>
-		<SectionContainer>
+		</SectionContainer>
+			
+		<SectionContainer id="proyectos" class="py-32">
+			<h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center mt-40">
+				<CodeIcon class="size-7"/>
+				Proyectos
+			</h2>
+			<Projects/>
+		</SectionContainer>
 
-		<SectionContainer id="contacto">
+
+		<SectionContainer id="contacto" class="py-32">
 			<h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center mt-40">
 				<ContactIcon class="size-7"/>
 				Contacto
 			</h2>
 			<Contact/>
-		<SectionContainer>
+		</SectionContainer>
 
 	</main>
 </Layout>
