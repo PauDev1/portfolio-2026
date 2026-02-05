@@ -1,4 +1,4 @@
-// src/actions/index.ts
+
 import { defineAction } from 'astro:actions';
 import { z } from 'astro:schema';
 import nodemailer from 'nodemailer';

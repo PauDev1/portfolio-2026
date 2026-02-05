@@ -20,15 +20,37 @@ const { title, description } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		 <head>
-    <script is:inline>
+    <!-- <script is:inline>
       if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         document.documentElement.classList.add('dark');
       }
-    </script>
+    </script> -->
+	<script is:inline>
+  const theme = (() => {
+    // 1. Si el usuario ya eligió un tema antes, usamos ese
+    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+      return localStorage.getItem('theme');
+    }
+    // 2. Si no, usamos la preferencia del sistema
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  })();
+
+  // Aplicamos la clase correspondiente al HTML
+  if (theme === 'light') {
+    document.documentElement.classList.remove('dark');
+  } else {
+    document.documentElement.classList.add('dark');
+  }
+
+  // Guardamos para que no parpadee al recargar
+  window.localStorage.setItem('theme', theme);
+</script>
 	</head>
 
 	<body id="top">
-		<div class="fixed insert-0 z-[-2] h-screen w-screen bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px]"></div>
+		 <div class="fixed inset-0 z-[-2] h-screen w-screen bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] 
+ 			 dark:bg-[#000000] dark:bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] dark:bg-[size:20px_20px]">
+		</div>
 		<Header></Header>
 		<slot />
 		<Footer/>
