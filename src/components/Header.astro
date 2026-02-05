@@ -3,7 +3,7 @@ import ThemeToggle from "./ThemeToggle.astro";
 ---
 
 
-<header
+<!-- <header
   class="flex justify-center items-center sticky top-0 w-full py-5 bg-[#00091D]/70 backdrop-blur-2xl z-10"
 >
   <nav
@@ -20,5 +20,24 @@ import ThemeToggle from "./ThemeToggle.astro";
       <ThemeToggle />
     </div>
   </nav>
-</header>
+</header> -->
 
+
+<header
+  class="flex justify-center items-center sticky top-0 w-full py-4 bg-[#00091D]/80 backdrop-blur-2xl z-20"
+>
+  <nav
+    class="w-full xl:w-[1120px] flex flex-col md:flex-row justify-center items-center px-4 md:px-10 gap-y-4 md:gap-y-0 relative"
+  >
+    <div class="flex flex-wrap justify-center items-center gap-x-2 md:gap-x-6 text-white font-medium">
+      <a class="hover:bg-white/10 rounded-full px-3 py-2 transition text-sm md:text-base" href="#top">Inicio</a>
+      <a class="hover:bg-white/10 rounded-full px-3 py-2 transition text-sm md:text-base" href="#sobre-mi">Sobre mí</a>
+      <a class="hover:bg-white/10 rounded-full px-3 py-2 transition text-sm md:text-base" href="#proyectos">Proyectos</a>
+      <a class="hover:bg-white/10 rounded-full px-3 py-2 transition text-sm md:text-base" href="#contacto">Contacto</a>
+    </div>
+
+    <div class="md:absolute md:right-10 flex items-center justify-center">
+      <ThemeToggle />
+    </div>
+  </nav>
+</header>
