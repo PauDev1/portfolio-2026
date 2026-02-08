@@ -52,7 +52,11 @@ const { title, description } = Astro.props;
  			 dark:bg-[#000000] dark:bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] dark:bg-[size:20px_20px]">
 		</div>
 		<Header></Header>
-		<slot />
+		
+		<main class="flex-1 w-full">
+            <slot />
+        </main>
+
 		<Footer/>
 	</body>
 </html>
@@ -65,6 +69,7 @@ const { title, description } = Astro.props;
 	html {
 		font-family: 'Onest Variable', system-ui, sans-serif;
 		scroll-behavior: smooth;
+		scroll-padding-top: 80px;
 		}
 		
 	body {
@@ -72,6 +77,9 @@ const { title, description } = Astro.props;
 		display: flex;
 		flex-direction: column;
 		min-height: 100vh;
+		margin: 0;      /* IMPORTANTE: elimina márgenes por defecto */
+        padding: 0;     /* IMPORTANTE: elimina paddings por defecto */
+        overflow-x: hidden;
 	}
 
 	@media (prefers-reduced-motion: reduce) {
