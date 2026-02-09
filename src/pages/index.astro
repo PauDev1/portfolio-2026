@@ -1,36 +1,39 @@
 ---
-import Layout from '@/layouts/Layout.astro';
-import Card from '@/components/Card.astro';
-import Badge from '@/components/Badge.astro';
-import LinkedInIcon from '@/icons/LinkedIn.astro'
-import GitHubIcon from '@/icons/GitHub.astro'
-import MailIcon from '@/icons/Mail.astro'
-import Briefcase from '@/icons/Briefcase.astro'
-import CodeIcon from '@/icons/Code.astro'
-import ProfileCheckIcon from '@/icons/ProfileCheck.astro';
-import SocialPill from '@/components/SocialPill.astro';
-import Experience from '@/components/Experience.astro';
-import SectionContainer from '@/components/SectionContainer.astro'
-import Projects from '@/components/Projects.astro';
-import AboutMe from '@/components/AboutMe.astro';
-import ContactIcon from '@/icons/Mail.astro'
-import Contact from '@/components/Contact.astro'
+import Layout from "@/layouts/Layout.astro";
+import Card from "@/components/Card.astro";
+import Badge from "@/components/Badge.astro";
+import LinkedInIcon from "@/icons/LinkedIn.astro";
+import GitHubIcon from "@/icons/GitHub.astro";
+import MailIcon from "@/icons/Mail.astro";
+import Briefcase from "@/icons/Briefcase.astro";
+import CodeIcon from "@/icons/Code.astro";
+import ProfileCheckIcon from "@/icons/ProfileCheck.astro";
+import SocialPill from "@/components/SocialPill.astro";
+import Experience from "@/components/Experience.astro";
+import SectionContainer from "@/components/SectionContainer.astro";
+import Projects from "@/components/Projects.astro";
+import AboutMe from "@/components/AboutMe.astro";
+import ContactIcon from "@/icons/Mail.astro";
+import Contact from "@/components/Contact.astro";
 ---
 
-<Layout title="Portfolio de Paola - Desarrollador y Programador web Full Stack"
-		description=""
+<Layout
+  title="Portfolio de Paola - Desarrollador y Programador web Full Stack"
+  description=""
 >
-	<main class="px-4">
-		<SectionContainer class="pt-72 pb-32">
-			<!-- <img 
+  <main class="px-4">
+    <SectionContainer class="pt-32 pb-20 md:pt-72 md:pb-32">
+      <!-- <img 
     			class="rounded-full size-12 mb-4" 
     			src="https://avatars.githubusercontent.com/u/148149730?v=4" 
     			alt="pao photo"
             /> -->
 
-			<h1 class="text-gray-800 dark:text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10">
-				Hola, soy Paola
-				 <!-- <a 
+      <h1
+        class="text-gray-800 dark:text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10"
+      >
+        Hola, soy Paola
+        <!-- <a 
 				    href="https://www.linkedin.com/in/paola-lizarriba" 
 				    target="_blank" 
 				    rel="noopener"
@@ -38,29 +41,35 @@ import Contact from '@/components/Contact.astro'
 				>
 					<Badge>Disponible para trabajar</Badge>
 				</a> -->
-			</h1>
-		    <h2 class=" text-2xl lg:text-2xl text-wrap max-w-[700px]">
-				<span class="text-gray-800 dark:text-white">Desarrolladora Full Stack.</span>
-				<span class="text-purple-500 dark:text-purple-200/90">+3 años de experiencia.</span>
-				<span class="text-pink-400 dark:text-red-200/90">De Buenos Aires, Argentina.</span>
-			</h2>
-		    <nav class="flex gap-4 mt-8 flex-wrap">
-				<SocialPill href="https://www.linkedin.com/in/paola-lizarriba" >
-					<LinkedInIcon class="size-6"/>
-					LinkedIn
-				</SocialPill>
-				<SocialPill href="https://www.github.com/PauDev1" >
-					<GitHubIcon class="size-6"/>
-					GitHub
-				</SocialPill>
-				<!-- <SocialPill href="mailto:" >
+      </h1>
+      <h2 class="text-2xl lg:text-2xl text-wrap max-w-[700px]">
+        <span class="text-gray-800 dark:text-white"
+          >Desarrolladora Full Stack.</span
+        >
+        <span class="text-purple-500 dark:text-purple-200/90"
+          >+3 años de experiencia.</span
+        >
+        <span class="text-pink-400 dark:text-red-200/90"
+          >De Buenos Aires, Argentina.</span
+        >
+      </h2>
+      <nav class="flex gap-4 mt-8 flex-wrap">
+        <SocialPill href="https://www.linkedin.com/in/paola-lizarriba">
+          <LinkedInIcon class="size-6" />
+          LinkedIn
+        </SocialPill>
+        <SocialPill href="https://www.github.com/PauDev1">
+          <GitHubIcon class="size-6" />
+          GitHub
+        </SocialPill>
+        <!-- <SocialPill href="mailto:" >
 					<MailIcon class="size-6"/>
 					Gmail
 				</SocialPill> -->
-			</nav>
-		</SectionContainer>
+      </nav>
+    </SectionContainer>
 
-		<!-- <SectionContainer id="experiencia" class="py-32 scroll-m-20" >
+    <!-- <SectionContainer id="experiencia" class="py-32 scroll-m-20" >
 			<h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center mt-40">
 				<Briefcase class="size-7"/>
 				Experiencia Laboral
@@ -68,31 +77,57 @@ import Contact from '@/components/Contact.astro'
 			<Experience/>
 		<SectionContainer> -->
 
-		<SectionContainer id="sobre-mi" class="py-32 scroll-m-20">
+    <!-- <SectionContainer id="sobre-mi" class="py-32 scroll-m-20">
 			<h2 class="text-3xl font-semibold text-gray-800 dark:text-white/80 mb-8 flex gap-x-3 items-center mt-40">
 				<ProfileCheckIcon class="size-7"/>
 				Sobre mí
 			</h2>
 			<AboutMe/>
-		</SectionContainer>
-			
-		<SectionContainer id="proyectos" class="py-32 scroll-m-4">
+		</SectionContainer> -->
+
+   <SectionContainer id="sobre-mi" class="py-20 md:py-32 scroll-mt-20">
+    <h2 class="text-3xl font-semibold text-gray-800 dark:text-white/80 mb-8 flex gap-x-3 items-center">
+        <ProfileCheckIcon class="size-7" />
+        Sobre mí
+    </h2>
+    <AboutMe />
+</SectionContainer>
+
+    <!-- <SectionContainer id="proyectos" class="scroll-mt-10 md:scroll-mt-18">
 			<h2 class="text-3xl font-semibold text-gray-800 dark:text-white/80 mb-8 flex gap-x-3 items-center mt-10">
 				<CodeIcon class="size-7"/>
 				Proyectos
 			</h2>
 			<Projects/>
-		</SectionContainer>
+		</SectionContainer> -->
 
+<SectionContainer id="proyectos" class="pt-0 pb-20 md:pt-0 md:pb-32 scroll-mt-20">
+    <h2 class="text-3xl font-semibold text-gray-800 dark:text-white/80 mb-8 flex gap-x-3 items-center">
+        <CodeIcon class="size-7" />
+        Proyectos
+    </h2>
+    <Projects />
+</SectionContainer>
 
-		<SectionContainer id="contacto" class="py-32 mb-20 scroll-m-4">
+    <!-- <SectionContainer id="contacto" class="py-32 mb-20 scroll-m-4">
 			<h2 class="text-3xl font-semibold text-gray-800 dark:text-white/80 mb-10 flex gap-x-3 items-center mt-10">
 				<ContactIcon class="size-7"/>
 				Contacto
 			</h2>
 			<Contact/>
-		</SectionContainer>
+		</SectionContainer> -->
 
-	</main>
+<div class="relative">
+  <span id="contacto" class="absolute -top-[10px] md:top-[10px]"></span>
+  
+  <SectionContainer class="py-20 md:py-32">
+    <h2 class="text-3xl font-semibold text-gray-800 dark:text-white/80 mb-10 flex gap-x-3 items-center">
+      <ContactIcon class="size-7" />
+      Contacto
+    </h2>
+    <Contact />
+  </SectionContainer>
+</div>
+
+  </main>
 </Layout>
-
