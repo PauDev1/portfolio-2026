@@ -1,11 +1,20 @@
 ---
 import ContactForm from "./ContactForm.astro"
-
+import { getLangFromUrl } from '../i18n/utils.js';
+const lang = getLangFromUrl(Astro.url);
 ---
-<section class="">
+<section id="contacto" class="scroll-mt-20 pt-0 pb-20">
+    {lang === 'en' ? (
+      <>
+        <p class="text-xl mb-4 text-center text-gray-800 dark:text-purple-200/90">Have a project in mind or looking to add talent to your team?</p>
+        <p class="text-3xl mb-10 text-gray-800 dark:text-white text-center"><strong>Let's work together!</strong></p>
+      </>
+    ) : (
+      <>
+        <p class="text-xl mb-4 text-center text-gray-800 dark:text-purple-200/90">¿Tenés un proyecto en mente o buscás sumar talento a tu equipo?</p>
+        <p class="text-3xl mb-10 text-gray-800 dark:text-white text-center"><strong>¡Trabajemos juntos!</strong></p>
+      </>
+    )}
 
-    <p class="text-xl mb-4 text-center text-gray-800 dark:text-purple-200/90"> ¿Tenés un proyecto en mente o buscás sumar talento a tu equipo? </p>
-    <p class="text-3xl mb-10 text-gray-800 dark:text-white text-center"> <strong>¡Trabajemos juntos!</strong></p>
-
-    <ContactForm></ContactForm>
+    <ContactForm lang={lang} />
 </section>

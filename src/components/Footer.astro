@@ -1,40 +1,34 @@
 ---
 import GitHub from "@/icons/GitHub.astro"
 import LinkedIn from "@/icons/LinkedIn.astro"
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
+<footer class="bg-[#00091D]/70 backdrop-blur-2xl w-full border-t border-white/5">
+    <div class="w-full mx-auto max-w-screen-xl p-6 flex flex-col items-center gap-y-4 md:flex-row md:justify-between md:gap-y-0">
+      
+      <span class="text-sm text-white/80 text-center md:text-left">
+        {lang === 'es' ? '© 2026 — Desarrollado con 🤍 y Astro' : '© 2026 — Developed with 🤍 and Astro'}
+      </span>
+      
+      <ul class="flex items-center justify-center gap-x-6">
+        <li>
+          <a href="https://www.github.com/PauDev1" target="_blank" rel="noopener noreferrer" class="text-white/80 hover:text-white transition-colors" aria-label="GitHub">
+            <GitHub class="size-7" />
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/paola-lizarriba" target="_blank" rel="noopener noreferrer" class="text-white/80 hover:text-white transition-colors" aria-label="LinkedIn">
+            <LinkedIn class="size-7" />
+          </a>
+        </li>
+      </ul>
 
-<footer class=" shadow m-4 bg-[#00091D]/70 backdrop-blur-2xl w-full xl:w[1120px] mx-auto mb-0">
-    <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-      <span class="text-sm text-white sm:text-center">© 2026 — Desarrollado con 🤍 y Astro
-    </span>
-    <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-white/90 sm:mt-0">
-     
-        <li class="mr-8 last:mr-0">
-        <a
-          href="https://www.github.com/PauDev1"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="GitHub"
-          class="hover:text-white transition"
-        >
-          <GitHub class="size-7" />
-        </a>
-      </li>
- 
-         <a
-          href="https://www.linkedin.com/in/paola-lizarriba"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn"
-          class="hover:text-white transition"
-        >
-          <LinkedIn class="size-7" />
-        </a>
-    </ul>
     </div>
-</footer>  
-
+</footer>
 
 
 

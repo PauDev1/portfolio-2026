@@ -2,6 +2,7 @@
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import '@fontsource-variable/onest';
+import LanguagePicker from '../components/LanguagePicker.astro';
 interface Props {
 	title: string;
 	description: string;
@@ -19,7 +20,7 @@ const { title, description } = Astro.props;
 		<link rel="icon" type="" href="/gato2.png" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-		 <head>
+		 
     <!-- <script is:inline>
       if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         document.documentElement.classList.add('dark');
@@ -48,12 +49,12 @@ const { title, description } = Astro.props;
 	</head>
 
 	<body id="top">
-		 <div class="fixed inset-0 z-[-2] h-screen w-screen bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] 
- 			 dark:bg-[#000000] dark:bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] dark:bg-[size:20px_20px]">
+		<div class="fixed inset-0 z-[-2] min-h-full w-full bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] 
+     		dark:bg-[#00091d] dark:bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] dark:bg-[size:20px_20px]">
 		</div>
 		<Header></Header>
 		
-		<main class="flex-1 w-full">
+		<main class="flex flex-col items-center justify-center w-full px-4 sm:px-6">
             <slot />
         </main>
 
@@ -73,13 +74,10 @@ const { title, description } = Astro.props;
 		}
 		
 	body {
-		background: #050505;
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
-		margin: 0;      /* IMPORTANTE: elimina márgenes por defecto */
-        padding: 0;     /* IMPORTANTE: elimina paddings por defecto */
-        overflow-x: hidden;
+		overflow-x: hidden; /* Esto mata la franja negra lateral */
+        width: 100%;
+        margin: 0;
+        padding: 0;
 	}
 
 	@media (prefers-reduced-motion: reduce) {
