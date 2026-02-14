@@ -1,69 +1,83 @@
 ---
 import { actions } from "astro:actions";
+
+const { lang } = Astro.props;
+
+const TEXT = {
+  es: {
+    labelName: "Nombre completo",
+    placeholderName: "Escribe tu nombre",
+    errorName: "El nombre debe tener al menos 3 caracteres.",
+    labelEmail: "Email",
+    placeholderEmail: "tu@email.com",
+    errorEmail: "Ingresa un email válido.",
+    labelMessage: "Mensaje",
+    placeholderMsg: "Deja tu comentario...",
+    errorMessage: "El mensaje debe tener al menos 10 caracteres.",
+    btnSend: "Enviar",
+    btnSending: "Enviando...",
+    btnDone: "¡Listo!",
+    success: "¡Gracias! Te responderé pronto."
+  },
+  en: {
+    labelName: "Full Name",
+    placeholderName: "Write your name",
+    errorName: "Name must be at least 3 characters long.",
+    labelEmail: "Email",
+    placeholderEmail: "your@email.com",
+    errorEmail: "Enter a valid email.",
+    labelMessage: "Message",
+    placeholderMsg: "Leave a comment...",
+    errorMessage: "Message must be at least 10 characters long.",
+    btnSend: "Send",
+    btnSending: "Sending...",
+    btnDone: "Done!",
+    success: "Thanks! I'll get back to you soon."
+  }
+};
+
+const t = TEXT[lang as keyof typeof TEXT] || TEXT.es;
+
 ---
 
 <section
   class="bg-[#00091D]/20 dark:bg-[#00091D]/70 rounded backdrop-blur-lg shadow-2xl shadow-black/10 dark:shadow-white/10"
 >
   <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
-    <form id="contact-form" class="space-y-8">
+    <form id="contact-form" class="space-y-8" data-send={t.btnSend} data-sending={t.btnSending} data-done={t.btnDone}>
       <div>
-        <label
-          for="name"
-          class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-300"
-          >Nombre completo</label
-        >
-
+        <label for="name" class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-300">{t.labelName}</label>
         <input
           type="text"
           id="name"
           name="name"
           class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
-          placeholder="Escribe tu nombre"
+          placeholder={t.placeholderName}
         />
-
-        <p id="name-error" class="text-red-500 text-sm mt-1 hidden">
-          El nombre debe tener al menos 3 caracteres.
-        </p>
+        <p id="name-error" class="text-red-500 text-sm mt-1 hidden">{t.errorName}</p>
       </div>
 
       <div>
-        <label
-          for="email"
-          class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-300"
-          >Email</label
-        >
-
+        <label for="email" class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-300">{t.labelEmail}</label>
         <input
           type="email"
           id="email"
           name="email"
           class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
-          placeholder="tu@email.com"
+          placeholder={t.placeholderEmail}
         />
-
-        <p id="email-error" class="text-red-500 text-sm mt-1 hidden">
-          Ingresa un email válido.
-        </p>
+        <p id="email-error" class="text-red-500 text-sm mt-1 hidden">{t.errorEmail}</p>
       </div>
 
       <div class="sm:col-span-2">
-        <label
-          for="message"
-          class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400"
-          >Mensaje</label
-        >
-
+        <label for="message" class="block mb-2 text-lg font-medium text-gray-900 dark:text-gray-400">{t.labelMessage}</label>
         <textarea
           id="message"
           name="message"
           rows="6"
           class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-          placeholder="Deja tu comentario..."></textarea>
-
-        <p id="message-error" class="text-red-500 text-sm mt-1 hidden">
-          El mensaje debe tener al menos 10 caracteres.
-        </p>
+          placeholder={t.placeholderMsg}></textarea>
+        <p id="message-error" class="text-red-500 text-sm mt-1 hidden">{t.errorMessage}</p>
       </div>
 
       <div class="flex justify-center mt-10">
@@ -72,12 +86,10 @@ import { actions } from "astro:actions";
           id="submit-btn"
           class="bg-gray-200 dark:bg-white/5 border border-gray-300 dark:border-white/10 rounded-full inline-flex justify-center items-center gap-x-2 py-2 px-6 text-lg transition hover:scale-105 hover:bg-gray-400 hover:bg-gray-200 dark:hover:bg-white/10 text-gray-800 dark:text-white font-semibold shadow-sm"
         >
-          Enviar
+          {t.btnSend}
         </button>
       </div>
-      <p id="form-success" class="text-green-500 text-center font-bold hidden">
-        ¡Gracias! Te responderé pronto.
-      </p>
+      <p id="form-success" class="text-green-500 text-center font-bold hidden">{t.success}</p>
     </form>
   </div>
 </section>
@@ -88,13 +100,13 @@ import { actions } from "astro:actions";
   const form = document.getElementById("contact-form") as HTMLFormElement;
   const btn = document.getElementById("submit-btn") as HTMLButtonElement;
 
+  const txtSend = form?.dataset.send || "";
+  const txtSending = form?.dataset.sending || "";
+  const txtDone = form?.dataset.done || "";
+
   form?.addEventListener("submit", async (e) => {
     e.preventDefault();
-
-    // 1. Resetear estados
-    document
-      .querySelectorAll('[id$="-error"]')
-      .forEach((el) => el.classList.add("hidden"));
+    document.querySelectorAll('[id$="-error"]').forEach((el) => el.classList.add("hidden"));
     document.getElementById("form-success")?.classList.add("hidden");
 
     const formData = new FormData(form);
@@ -102,53 +114,37 @@ import { actions } from "astro:actions";
     const em = ((formData.get("email") as string) || "").trim();
     const m = ((formData.get("message") as string) || "").trim();
 
-    // 2. Validación manual
     let errorCerca = false;
-
-    if (n.length < 3) {
-      document.getElementById("name-error")?.classList.remove("hidden");
-      errorCerca = true;
-    }
-    if (m.length < 10) {
-      document.getElementById("message-error")?.classList.remove("hidden");
-      errorCerca = true;
-    }
-    if (!em.includes("@") || em.length < 5) {
-      document.getElementById("email-error")?.classList.remove("hidden");
-      errorCerca = true;
-    }
+    if (n.length < 3) { document.getElementById("name-error")?.classList.remove("hidden"); errorCerca = true; }
+    if (m.length < 10) { document.getElementById("message-error")?.classList.remove("hidden"); errorCerca = true; }
+    if (!em.includes("@") || em.length < 5) { document.getElementById("email-error")?.classList.remove("hidden"); errorCerca = true; }
 
     if (errorCerca) return;
 
-    // 3. Envío
     btn.disabled = true;
-    btn.innerText = "Enviando...";
+    btn.innerText = txtSending;
 
     try {
       const { data, error } = await actions.sendContact(formData);
-
       if (error) {
         btn.disabled = false;
-        btn.innerText = "Enviar";
-        // Si el servidor falla, mostramos el error de email por defecto
+        btn.innerText = txtSend;
         document.getElementById("email-error")?.classList.remove("hidden");
         return;
       }
-
       if (data?.success) {
         document.getElementById("form-success")?.classList.remove("hidden");
-        btn.innerText = "¡Listo!";
+        btn.innerText = txtDone;
         form.reset();
-
         setTimeout(() => {
-          btn.innerText = "Enviar";
+          btn.innerText = txtSend;
           btn.disabled = false;
           document.getElementById("form-success")?.classList.add("hidden");
         }, 5000);
       }
     } catch (err) {
       btn.disabled = false;
-      btn.innerText = "Error";
+      btn.innerText = txtSend;
     }
   });
 </script>

@@ -9,103 +9,110 @@ import MySql from "@/icons/MySql.astro";
 import Node from "@/icons/Node.astro";
 import Express from "@/icons/Express.astro";
 import Mongo from "@/icons/Mongo.astro";
+import { getLangFromUrl } from '../i18n/utils.js';
+
+const lang = getLangFromUrl(Astro.url);
 
 const TAGS = {
-  REACT: {
-    name: "React",
-    class: "bg-[#003159] text-white border border-[#61DBFB]/20",
-    icon: React,
-  },
-
-  BOOTSTRAP: {
-    name: "Bootstrap",
-    class: "bg-[#311B92] text-white border border-[#D1C4E9]/20",
-    icon: Bootstrap,
-  },
-
-  SPRING: {
-    name: "Springboot",
-    class: "bg-[#1B5E20] text-white border border-[#C8E6C9]/20",
-    icon: Spring,
-  },
-
-  MYSQL: {
-    name: "MySQL",
-    class: "bg-[#003545] text-white border border-[#00758F]/20",
-    icon: MySql,
-  },
-
-  NODE: {
-    name: "Node.js",
-    class: "bg-[#1B3A1B] text-white border border-[#68A063]/20",
-    icon: Node,
-  },
-
-  EXPRESS: {
-    name: "Express.js",
-    class: "bg-[#333333] text-white border border-[#FFFFFF]/20",
-    icon: Express,
-  },
-
-  MONGODB: {
-    name: "MongoDB",
-    class: "bg-[#001E2B] text-white border border-[#00ED64]/20",
-    icon: Mongo,
-  },
+  // ... (Tus TAGS se quedan exactamente igual, no hace falta tocarlos)
+  REACT: { name: "React", class: "bg-[#003159] text-white border border-[#61DBFB]/20", icon: React },
+  BOOTSTRAP: { name: "Bootstrap", class: "bg-[#311B92] text-white border border-[#D1C4E9]/20", icon: Bootstrap },
+  SPRING: { name: "Springboot", class: "bg-[#1B5E20] text-white border border-[#C8E6C9]/20", icon: Spring },
+  MYSQL: { name: "MySQL", class: "bg-[#003545] text-white border border-[#00758F]/20", icon: MySql },
+  NODE: { name: "Node.js", class: "bg-[#1B3A1B] text-white border border-[#68A063]/20", icon: Node },
+  EXPRESS: { name: "Express.js", class: "bg-[#333333] text-white border border-[#FFFFFF]/20", icon: Express },
+  MONGODB: { name: "MongoDB", class: "bg-[#001E2B] text-white border border-[#00ED64]/20", icon: Mongo },
 };
 
-const PROJECTS = [
-  {
-    title: "E-commerce en React",
-    description:
-      "Aplicación web desarrollada con React.js que implementa un sistema básico de gestión de productos y carrito de compras. Cuenta con un panel de administración protegido por login, desde el cual se realiza un CRUD completo de productos. La interfaz fue maquetada con Bootstrap, priorizando el desarrollo de la lógica y la arquitectura de componentes en React.",
-    link: "https://entrega-final-react-25235-pl.vercel.app/",
-    github: "https://github.com/PauDev1/entrega-final-react-25235-PL",
-    image: "/projects/react.webp",
-    tags: [TAGS.REACT, TAGS.BOOTSTRAP],
+// Diccionario de textos para los proyectos
+const TEXT = {
+  en: {
+    viewCode: "View Code",
+    viewSite: "Live Demo",
+    projects: [
+      {
+        title: "React E-commerce",
+        description: "Web application developed with React.js featuring a product management system and shopping cart. It includes a login-protected admin panel for full product CRUD operations. The interface was built with Bootstrap, focusing on React's logic and component architecture.",
+        link: "https://entrega-final-react-25235-pl.vercel.app/",
+        github: "https://github.com/PauDev1/entrega-final-react-25235-PL",
+        image: "/projects/react.webp",
+        tags: [TAGS.REACT, TAGS.BOOTSTRAP],
+      },
+      {
+        title: "E-commerce REST API – Java & Spring Boot",
+        description: "RESTful API developed in Java with Spring Boot to manage an E-commerce system, applying OOP, layered architecture, and REST best practices. Uses MySQL with Spring Data JPA for persistence, allowing CRUD operations for products, users, and orders.",
+        github: "https://github.com/PauDev1/proyecto-integrador",
+        image: "/projects/java.webp",
+        tags: [TAGS.SPRING, TAGS.MYSQL],
+      },
+      {
+        title: "Trailerflix REST API - Node.js & Express",
+        description: "Comprehensive API for multimedia content management using Node.js and Express. Features a relational database design in MySQL and an MVC architecture. I solved technical challenges regarding complex data filtering and query optimization for fast and secure server responses.",
+        github: "https://github.com/PauDev1/Trailerflix/",
+        image: "/projects/trailerflix.webp",
+        tags: [TAGS.NODE, TAGS.EXPRESS, TAGS.MYSQL],
+      },
+      {
+        title: "Furniture Store REST API - Node.js & Express",
+        description: "API created to manage a furniture store's stock. I used Node.js with Express for server logic and MongoDB for product storage. Developed endpoints for creating, reading, updating, and deleting (CRUD) catalog items efficiently.",
+        github: "https://github.com/PauDev1/Muebleria",
+        image: "/projects/muebleria.webp",
+        tags: [TAGS.NODE, TAGS.EXPRESS, TAGS.MONGODB],
+      },
+    ]
   },
+  es: {
+    viewCode: "Ver código",
+    viewSite: "Ver sitio",
+    projects: [
+      {
+        title: "E-commerce en React",
+        description: "Aplicación web desarrollada con React.js que implementa un sistema básico de gestión de productos y carrito de compras. Cuenta con un panel de administración protegido por login, desde el cual se realiza un CRUD completo de productos. La interfaz fue maquetada con Bootstrap, priorizando el desarrollo de la lógica y la arquitectura de componentes en React.",
+        link: "https://entrega-final-react-25235-pl.vercel.app/",
+        github: "https://github.com/PauDev1/entrega-final-react-25235-PL",
+        image: "/projects/react.webp",
+        tags: [TAGS.REACT, TAGS.BOOTSTRAP],
+      },
+      {
+        title: "E-commerce REST API – Java & Spring Boot",
+        description: "API RESTful desarrollada en Java con Spring Boot para gestionar un sistema de E-commerce, aplicando POO, arquitectura en capas y buenas prácticas REST. Utiliza MySQL con Spring Data JPA para persistencia y permite realizar operaciones CRUD sobre productos, usuarios y pedidos",
+        github: "https://github.com/PauDev1/proyecto-integrador",
+        image: "/projects/java.webp",
+        tags: [TAGS.SPRING, TAGS.MYSQL],
+      },
+      {
+        title: "Trailerflix REST API- Node.js & Express",
+        description: "API integral para la gestión de contenidos multimedia utilizando Node.js y Express. El proyecto destaca por el diseño de una base de datos relacional en MySQL y la implementación de una arquitectura MVC que facilita el mantenimiento. Resolví desafíos técnicos relacionados con el filtrado complejo de datos y la optimización de consultas, asegurando una respuesta rápida y segura del servidor.",
+        github: "https://github.com/PauDev1/Trailerflix/",
+        image: "/projects/trailerflix.webp",
+        tags: [TAGS.NODE, TAGS.EXPRESS, TAGS.MYSQL],
+      },
+      {
+        title: "Muebleria REST API- Node.js & Express",
+        description: "API creada para gestionar el stock de una mueblería. Usé Node.js con Express para la lógica del servidor y MongoDB como base de datos para guardar los productos. Desarrollé los endpoints necesarios para poder crear, leer, actualizar y borrar (CRUD) ítems del catálogo de forma rápida.",
+        github: "https://github.com/PauDev1/Muebleria",
+        image: "/projects/muebleria.webp",
+        tags: [TAGS.NODE, TAGS.EXPRESS, TAGS.MONGODB],
+      },
+    ]
+  }
+};
 
-  {
-    title: "E-commerce REST API – Java & Spring Boot",
-    description:
-      "API RESTful desarrollada en Java con Spring Boot para gestionar un sistema de E-commerce, aplicando POO, arquitectura en capas y buenas prácticas REST. Utiliza MySQL con Spring Data JPA para persistencia y permite realizar operaciones CRUD sobre productos, usuarios y pedidos",
-    // link: '',
-    github: "https://github.com/PauDev1/proyecto-integrador",
-    image: "/projects/java.webp",
-    tags: [TAGS.SPRING, TAGS.MYSQL],
-  },
-
-  {
-    title: "Trailerflix REST API- Node.js & Express",
-    description:
-      "API integral para la gestión de contenidos multimedia utilizando Node.js y Express. El proyecto destaca por el diseño de una base de datos relacional en MySQL y la implementación de una arquitectura MVC que facilita el mantenimiento. Resolví desafíos técnicos relacionados con el filtrado complejo de datos y la optimización de consultas, asegurando una respuesta rápida y segura del servidor.",
-    // link: '',
-    github: "https://github.com/PauDev1/Trailerflix/",
-    image: "/projects/trailerflix.webp",
-    tags: [TAGS.NODE, TAGS.EXPRESS, TAGS.MYSQL],
-  },
-
-  {
-    title: "Muebleria REST API- Node.js & Express",
-    description:
-      "API creada para gestionar el stock de una mueblería. Usé Node.js con Express para la lógica del servidor y MongoDB como base de datos para guardar los productos. Desarrollé los endpoints necesarios para poder crear, leer, actualizar y borrar (CRUD) ítems del catálogo de forma rápida.",
-    // link: '',
-    github: "https://github.com/PauDev1/Muebleria",
-    image: "/projects/muebleria.webp",
-    tags: [TAGS.NODE, TAGS.EXPRESS, TAGS.MONGODB],
-  },
-];
+const currentContent = TEXT[lang as keyof typeof TEXT] || TEXT['es'];
 ---
 
 <section class="flex flex-col gap-y-16">
   {
-    PROJECTS.map(({ image, title, description, tags, link, github }) => (
+    currentContent.projects.map((project: any) => {
+      const { image, title, description, tags, link, github } = project;
+
+      return (
       <article>
         <h3 class="text-2xl font-semibold text-gray-800 dark:text-purple-200 mb-2">{title}</h3>
         <p class="text-lg mb-4 text-gray-700 dark:text-gray-400 text-pretty">{description}</p>
-       
+        
         <ul class="flex gap-x-2 flex-row mb-2">
-          {tags.map((tag) => (
+          {tags.map((tag: any) => (
             <li>
               <span
                 class={`flex gap-x-2 items-center justify-center rounded-full px-3 py-1 text-xs font-medium ${tag.class}`}
@@ -120,21 +127,22 @@ const PROJECTS = [
           loading="lazy"
           class="mt-4 rounded shadow-2xl shadow-black/20 dark:shadow-white/10 aspect-video"
           src={image}
-          alt={`Captura de pantalla del proyecto ${image}`}
+          alt={`Screenshot of project ${title}`}
         />
         <footer class="flex gap-x-4 items-end justify-end mt-4">
           <LinkButton href={github} target="_blank" rel="noopener noreferrer">
             <GitHub class="size-6" />
-            Ver código
+            {currentContent.viewCode}
           </LinkButton>
           {link && (
             <LinkButton href={link} target="_blank" rel="noopener noreferrer">
               <WebSite />
-              Ver sitio
+              {currentContent.viewSite}
             </LinkButton>
           )}
         </footer>
       </article>
-    ))
+    )
+    })
   }
 </section>
