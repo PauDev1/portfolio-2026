@@ -10,15 +10,39 @@ const getTargetUrl = (lang: string) => {
 };
 ---
 
-<div class="flex gap-2 p-2">
+<!-- <div class="flex gap-2 p-2">
   {Object.entries(languages).map(([lang, label]) => (
     <a
       href={getTargetUrl(lang)}
       class={`px-3 py-1 rounded-md text-sm font-medium transition-colors lang-link ${
         (pathname.startsWith('/en') ? 'en' : 'es') === lang
-          ? 'bg-white/20 text-white border border-white/50'
+          ? 'bg-white/20 text-white border border-white/30'
           : 'text-white/70 hover:text-white hover:bg-white/10'
       }`}
+    >
+      {label}
+    </a>
+  ))}
+</div> -->
+
+<div class="flex gap-x-2 p-2">
+  {Object.entries(languages).map(([lang, label]) => (
+    <a
+      href={getTargetUrl(lang)}
+      class={`
+        lang-link
+        rounded-full 
+        flex justify-center items-center 
+        py-1 px-3 
+        text-sm font-medium
+        transition-all duration-300
+        hover:scale-110
+        ${
+          (pathname.startsWith('/en') ? 'en' : 'es') === lang
+            ? 'border-2 border-white/60 bg-white/20 text-white' 
+            : 'border-2 border-transparent text-white/70 hover:text-white hover:bg-white/10'
+        }
+      `}
     >
       {label}
     </a>
@@ -57,3 +81,10 @@ const getTargetUrl = (lang: string) => {
     }, 100);
   }
 </script>
+
+<style>
+  /* Astro aplicará esto SOLO a los enlaces de este componente */
+  .lang-link {
+    font-family: 'Onest Variable', system-ui, sans-serif;
+  }
+</style>
