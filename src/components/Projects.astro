@@ -98,18 +98,21 @@ const TEXT = {
   }
 };
 
-const currentContent = TEXT[lang] || TEXT['es'];
+const currentContent = TEXT[lang as keyof typeof TEXT] || TEXT['es'];
 ---
 
 <section class="flex flex-col gap-y-16">
   {
-    currentContent.projects.map((/** @type {any} */{ image, title, description, tags, link, github }) => (
+    currentContent.projects.map((project: any) => {
+      const { image, title, description, tags, link, github } = project;
+
+      return (
       <article>
         <h3 class="text-2xl font-semibold text-gray-800 dark:text-purple-200 mb-2">{title}</h3>
         <p class="text-lg mb-4 text-gray-700 dark:text-gray-400 text-pretty">{description}</p>
         
         <ul class="flex gap-x-2 flex-row mb-2">
-          {tags.map((/** @type {any} */ tag) => (
+          {tags.map((tag: any) => (
             <li>
               <span
                 class={`flex gap-x-2 items-center justify-center rounded-full px-3 py-1 text-xs font-medium ${tag.class}`}
@@ -139,6 +142,7 @@ const currentContent = TEXT[lang] || TEXT['es'];
           )}
         </footer>
       </article>
-    ))
+    )
+    })
   }
 </section>
