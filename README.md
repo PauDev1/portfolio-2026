@@ -34,6 +34,8 @@ Para clonar este proyecto y ejecutarlo en tu máquina:
    ```bash
    npm run dev
 
+## 📬 Contacto
+
 Si querés charlar sobre algún proyecto o simplemente conectar:
 
 - **LinkedIn:** [https://www.linkedin.com/in/paola-lizarriba](https://www.linkedin.com/in/paola-lizarriba/)
