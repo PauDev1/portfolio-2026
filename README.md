@@ -1,5 +1,3 @@
-# Astro Starter Kit: Basics
-
 # Portfolio Personal - Paola 🚀
 
 Bienvenido/a a mi portfolio personal. Este proyecto es una plataforma diseñada para mostrar mi trayectoria como **Full Stack Developer**, mis proyectos y mis habilidades técnicas.
@@ -37,7 +35,9 @@ Si querés clonar este proyecto y ejecutarlo en tu máquina:
    npm run dev
 
 
-   ## 📬 Contacto
+   
+
+
 
 Si querés charlar sobre algún proyecto o simplemente conectar:
 
