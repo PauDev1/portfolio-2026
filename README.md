@@ -20,7 +20,7 @@ El sitio cuenta con soporte **multi-idioma (i18n)** y una arquitectura optimizad
 
 ## 🚀 Instalación Local
 
-Si querés clonar este proyecto y ejecutarlo en tu máquina:
+Para clonar este proyecto y ejecutarlo en tu máquina:
 
 1. Clona el repositorio:
    ```bash
@@ -33,11 +33,6 @@ Si querés clonar este proyecto y ejecutarlo en tu máquina:
 3. **Inicia el servidor de desarrollo:**
    ```bash
    npm run dev
-
-
-   
-
-
 
 Si querés charlar sobre algún proyecto o simplemente conectar:
 
